@@ -3,10 +3,11 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
     'ngRoute',
+    'ui.bootstrap',
     'myApp.view1',
     'myApp.view2',
     'myApp.version',
-    'ui.bootstrap'
+    'myApp.booking'
 ]).config(['$locationProvider', '$routeProvider', function ($locationProvider, $routeProvider) {
     $locationProvider.hashPrefix('!');
 
@@ -18,6 +19,10 @@ angular.module('myApp', [
         templateUrl: 'view2/view2.html',
         controller: 'View2Ctrl'
     });
+    $routeProvider.when('/bookingHome', {
+        templateUrl: 'bookingHome/bookingHome.html',
+        controller: 'BookingHome'
+    });
 
-    $routeProvider.otherwise({redirectTo: '/view1'});
+    $routeProvider.otherwise({redirectTo: '/bookingHome'});
 }]);
